@@ -17,7 +17,8 @@ start   jsr timed_start
         ldx #COL1
         ldy #COL2
 ; One pass is exactly one raster line (63 cycles on a PAL machine), so each colour change falls at the same place
-; on every line: straight vertical stripes, four to a line, 16 cycles (128 pixels) apart. On a bad line the
+; on every line: straight vertical stripes, four to a line, 15, 15, 15 and 18 cycles apart (the JMP adds 3 to the
+; last). On a bad line the
 ; processor is stopped from about cycle 12 to cycle 54, the changes due then wait, and one colour runs on.
 loop    stx $d020               ; 4
         stx $d021               ; 4
